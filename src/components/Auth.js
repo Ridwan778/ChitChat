@@ -3,6 +3,8 @@ import {signInWithPopup} from 'firebase/auth'
 
 import Cookies from 'universal-cookie';
 
+import '../styles/Auth.css';
+
 const cookie = new Cookies();
 
 
@@ -21,6 +23,7 @@ export const Auth = (props) => {
     }
     return(
         <div className="auth">
+            <h2>Welcome to ChitChat!</h2>
             <p>Sign In With Google To Continue</p>
             <button onClick = {signInWithGoogle}> Sign In With Google</button>
         </div>
