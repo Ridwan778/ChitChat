@@ -35,20 +35,10 @@ function App() {
   }
 
   return (
-    <div>
-      {room ? (
-      <div>
-        <Chat room={room}/>
-      </div>) : (
-      <div className = "room">
-        <label>Enter Room Name:</label>
-        <input ref = {roomInputRef}/>
-        <button onClick = {() => setRoom(roomInputRef.current.value)}> Enter Chat </button>
-      </div>
-      )}
-
+    <div className = "chat-Page">
+      <Chat/>
       <div className= "sign-out">
-        <button onClick={signUserOut}> Sign Out</button>
+        <button className = "sign-out-button" onClick={signUserOut}> Sign Out</button>
       </div>
     </div>
   )

@@ -5,6 +5,8 @@ import Cookies from 'universal-cookie';
 
 import '../styles/Auth.css';
 
+import logo from './logo.jpg'
+
 const cookie = new Cookies();
 
 
@@ -23,8 +25,8 @@ export const Auth = (props) => {
     }
     return(
         <div className="auth">
+            <img src={logo} style={{ width: '400px', height: '300px' }}></img>
             <h2>Welcome to ChitChat!</h2>
-            <p>Sign In With Google To Continue</p>
             <button onClick = {signInWithGoogle}> Sign In With Google</button>
         </div>
     )

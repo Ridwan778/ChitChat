@@ -14,3 +14,31 @@
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 1.0); /* Optional: Add a subtle box shadow */
 }
+
+.chat-Page {
+  background-color: rgb(250, 128, 114); /* You can replace this with your desired color code */
+  height: 100%;
+  
+}
+
+.sign-out {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; 
+  margin-top: 20px;
+}
+
+.sign-out-button {
+  padding: 10px 15px;
+  background-color:#4caf50;;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sign-out-button:hover {
+  background-color: #45a049;
+}
+
