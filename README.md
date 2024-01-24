@@ -24,7 +24,7 @@ React.js was used to create the UI and UX of the application. User data is store
 ``` npm start ```
 
 ###### Features:
-1. Support real-time synchronization of data across users, allowing changes made by one user to be immediately reflected on other connected users.
+1. Supports real-time synchronization of data across users, allowing changes made by one user to be immediately reflected on other connected users.
 
 2. Uses React.js library to support an intuitive and user-friendly interface
 
