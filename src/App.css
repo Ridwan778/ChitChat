@@ -1,6 +1,17 @@
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 .login-Page {
-  background-color: rgb(250, 128, 114); /* You can replace this with your desired color code */
-  height: 100%; /* Set the height to fill the viewport */
+  background-color: #EEA47F; 
+  height: 100%; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,24 +19,62 @@
 
 .Login-Menu {
   background-color: #f1f6f3;
-  margin: auto; /* Center the box horizontally */
+  margin: auto; 
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 1.0); /* Optional: Add a subtle box shadow */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1.0); 
+}
+
+.home-page{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.user-profiles{
+  display: flex;
+  flex-direction: column;
+  flex:1;
+  background-color: #EEA47F ;
+  color: rgb(50, 50, 50);
+}
+
+.users {
+  flex:1
+}
+
+.intro-message{
+  color: #fff;
 }
 
 .chat-Page {
-  background-color: rgb(250, 128, 114); /* You can replace this with your desired color code */
+  flex:3;
+  display: flex;
+  width: 50%;
+  align-items: center;
+  margin: auto;
+  background-color: #00539C; 
   height: 100%;
-  
+  font-weight: bold;
+  animation: slideIn 1s ease-in-out;
+}
+
+.chat-Page p{
+  margin: auto;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  text-align: center;
+
 }
 
 .sign-out {
   display: flex;
+  padding: 20px;
   justify-content: center;
   margin-top: 20px; 
   margin-top: 20px;
+  font-weight: bold;
 }
 
 .sign-out-button {

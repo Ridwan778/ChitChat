@@ -9,18 +9,22 @@ import {signOut} from "firebase/auth"
 
 import {auth} from "./firebase-config"
 
+import {Users} from "./components/Users"
+
 const cookie = new Cookies();
 
 function App() {
   const [isAuth,setIsAuth] = useState(cookie.get('auth-token'));
   const [room, setRoom] = useState('');
+  const [partner, setPartner] = useState(null);
   const roomInputRef = useRef(null);
 
   const signUserOut = async () => {
     await signOut(auth);
     cookie.remove("auth-token");
     setIsAuth(false);
-    setRoom(null);
+    //setRoom(null);
+    setPartner(null)
 
   }
 
@@ -34,15 +38,37 @@ function App() {
     );
   }
 
+  const verifyPartner = () => {
+    if(partner && partner.uid == auth.currentUser.uid){
+      setPartner(null);
+    }
+  }
+
   return (
-    <div className = "chat-Page">
-      <Chat/>
-      <div className= "sign-out">
-        <button className = "sign-out-button" onClick={signUserOut}> Sign Out</button>
+    <div className = "home-page">
+      <div className = "user-profiles">
+        <div className = "users">
+          <Users setPartner = {setPartner}/>
+        </div>
+        <div className= "sign-out">
+          <button className = "sign-out-button" onClick={signUserOut}> Sign Out</button>
+        </div>
       </div>
+
+      <div className = "chat-Page">
+      <>{verifyPartner()}</>
+      {partner && (
+         <Chat partner = {partner}/>
+      )}
+      {!partner && (
+        <>
+        <p class = "intro-message">Welcome to ChitChat! <br/>
+          Choose a partner to start a chat!</p>
+        </>
+      )}
+      </div>
+
     </div>
   )
-
 }
-
 export default App;

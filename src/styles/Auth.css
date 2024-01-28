@@ -4,23 +4,28 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background-color: #00539C;
   }
   
   .auth p {
     font-size: 18px;
     margin-bottom: 20px;
   }
+
+  .auth h2{
+    color: #fff;
+  }
   
   .auth button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #4285f4; /* Google Blue */
-    color: #ffffff;
+    background-color: #71d1fd; /* Google Blue */
+    color: black;
     border: none;
     border-radius: 4px;
     cursor: pointer;
   }
   
   .auth button:hover {
-    background-color: #357ae8; /* Google Dark Blue */
+    background-color: #6eb4d4; /* Google Dark Blue */
   }

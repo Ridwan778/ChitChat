@@ -23,7 +23,12 @@ const formatTimestamp = (timestamp) => {
     return dateFormatter.format(timestamp.toDate());
   };
 
-export const Chat = () => {
+const isCurrentUser = (message) => {
+  return message.from === auth.currentUser.displayName;
+}
+
+export const Chat = (props) => {
+    const {partner} = props;
 
     const [newMessage, setNewMessage] = useState("");
 
@@ -34,7 +39,11 @@ export const Chat = () => {
     ///const [photoURL, setPhotoURL] = useState(null);
 
     useEffect(() => {
-        const queryMessages = query(messagesRef, orderBy("createdAt"));
+        const queryMessages = query(messagesRef,
+        where("from", "in", [auth.currentUser.displayName, partner.userName]),
+        where("to", "in", [auth.currentUser.displayName, partner.userName]),
+        orderBy("createdAt") 
+        );
 
         //we cleanUp after using listening subscribe in useEffect hooks to prevent leaks
         const unsubscribe = onSnapshot(queryMessages, (snapshot) => {
@@ -45,9 +54,8 @@ export const Chat = () => {
             setMessages(messages);
             //console.log("NEW MESSAGE");
         });
-
         return () => unsubscribe();
-    }, [])
+    }, [partner])
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -55,8 +63,9 @@ export const Chat = () => {
         await addDoc(messagesRef,  {
             text: newMessage,
             createdAt: serverTimestamp(),
-            user: auth.currentUser.displayName,
-            profileURL : auth.currentUser.photoURL
+            from: auth.currentUser.displayName,
+            profileURL : auth.currentUser.photoURL,
+            to: partner.userName,
         });
 
         setNewMessage('');
@@ -72,22 +81,28 @@ export const Chat = () => {
     return (
       <div className="chat-app">
         <div className="header">
-          <h1>Welcome to ChitChat, {auth.currentUser?.displayName || 'Guest'}!</h1>
+          <div>
+          {partner && (
+         <>
+            <img src={partner.profileURL} alt="Profile" />
+            <p>{partner.userName}</p>
+         </>
+      )}
+          </div>
         </div>
-        <div className="messages">
+        
           <div ref={messagesContainerRef} className="messages">
             {messages.map((message) => (
-              <div key={message.id} className={`message ${message.profileURL ? 'with-profile' : ''}`}>
+              <div key={message.id} className={`message ${isCurrentUser(message) ? 'current-user' : 'other-user'}`}>
                 {message.profileURL && <img src={message.profileURL} alt="Profile" />}
                 <div className="message-content">
-                  <span className="user">{message.user}:</span>
                   <span className="text">{message.text}</span>
                 </div>
-                <span className="timestamp">{formatTimestamp(message.createdAt)}</span>
+                {/* <span className="timestamp">{formatTimestamp(message.createdAt)}</span> */}
               </div>
             ))}
           </div>
-        </div>
+       
         <form onSubmit={handleSubmit} className="new-message-form">
           <input
             className="new-message-input"

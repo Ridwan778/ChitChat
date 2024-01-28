@@ -1,0 +1,28 @@
+.individualUser{
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid  #00539C;
+    padding-left: 25px;
+    color:  #00539C;
+}
+
+.individualUser:hover{
+    background-color: rgb(249, 182, 149);
+}
+
+.individualUser img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+.individualUser p {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.UsersList h3 {
+    text-align: center;
+    color:  #00539C;
+}
