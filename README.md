@@ -1,6 +1,8 @@
-<img width="567" alt="Screenshot 2024-01-24 at 08 07 02" src="https://github.com/Ridwan778/ChitChat/assets/113521598/efe1f4ca-bf7d-481d-83ff-e30429175a3d">
 
-<img width="571" alt="Screenshot 2024-01-24 at 08 08 02" src="https://github.com/Ridwan778/ChitChat/assets/113521598/a8a2496a-0cea-432c-92af-d0d07d7699cc">
+<img width="851" alt="Screenshot 2024-01-28 at 10 54 35" src="https://github.com/Ridwan778/ChitChat/assets/113521598/6fe70bbf-0ebe-4c40-8a91-8189699019fb">
+
+<img width="851" alt="Screenshot 2024-01-28 at 10 54 27" src="https://github.com/Ridwan778/ChitChat/assets/113521598/b1de53a2-2878-41f0-9bd7-eff89db498df">
+
 
 # ChitChat
 
